@@ -1,0 +1,10 @@
+version: "3"
+services:
+  acint:
+    build:
+      context: .
+    ports:
+      - 8088:80
+    volumes:
+      - ./data:/do
+    env_file: .env

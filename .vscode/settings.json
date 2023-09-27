@@ -1,0 +1,16 @@
+{
+    "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": false
+    }
+  },
+  "python.terminal.activateEnvironment": false,
+  "python.defaultInterpreterPath": "/Users/davmeyer/.local/share/virtualenvs/ldm-Z4I5MxeJ/bin/python",
+  "python.linting.enabled": true,
+  "python.linting.lintOnSave": true,
+  "python.linting.pycodestyleEnabled": false,
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "none"
+}
