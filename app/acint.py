@@ -11,7 +11,7 @@ if len(allowed_actions_string) == 0:
     allowed_actions = [".deploy"]
 else:
     allowed_actions = os.environ.get("ACINT_ALLOWED_ACTIONS", ".deploy").split(",")
-proxy_path = os.environ.get("ACINT_PROXY_PATH", None) or "/acint"
+proxy_path = os.environ.get("ACINT_PROXY_PATH", None) or "/"
 
 
 def handle_an_exception():
