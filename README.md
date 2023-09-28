@@ -141,5 +141,5 @@ fi
 ### Crontab entry
 
 ```crontab
-* * * * * /opt/projects/wisedashboard/scripts/redeployIfNeeded.sh
+* * * * * /path/to/project/scripts/redeployIfNeeded.sh
 ```
