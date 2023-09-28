@@ -132,6 +132,8 @@ PROJECT_DIR="/path/to/project"
 DEPLOY_TRIGGER="${PROJECT_DIR}/.acint/.deploy"
 
 if [ -f ${DEPLOY_TRIGGER} ]; then
+    echo "##############"
+    echo `date`
     rm -f ${DEPLOY_TRIGGER}
     cd ${PROJECT_DIR}
     make redeploy
@@ -140,6 +142,8 @@ fi
 
 ### Crontab entry
 
+The following entry can be added to the repository's owners crontab:
+
 ```crontab
-* * * * * /path/to/project/scripts/redeployIfNeeded.sh
+* * * * * (sudo /path/to/project/scripts/redeployIfNeeded.sh 2>&1) >> /path/to/project/logs/redeploy.log
 ```
