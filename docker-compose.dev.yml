@@ -1,0 +1,8 @@
+version: "3"
+services:
+  acint:
+    ports:
+      - 8088:80
+    volumes:
+      - ./data:/do
+      - ./app:/app
