@@ -1,6 +1,6 @@
 # Action Interface (actint)
 
-The Action Interface (actint) is a simple web service that touches a file for the called action. 
+The _Action Interface_ (actint) is a simple web service that touches a file for the called action. 
 For example if the action `.deploy` is called it touches a file into the `/do` folder inside 
 the docker container. You can configure a volume to mount the `/do` folder to and use this 
 as a kind of a postbox to see what action to was triggered using the web service.
@@ -20,20 +20,20 @@ A comma separated list of actions to allow, default: `.deploy`
 ACINT_ALLOWED_ACTIONS=.deploy
 ```
 
-### `ACINT_PROXY_PATH`
-
-The proxy path for the service, default: `/`
-
-```bash
-ACINT_PROXY_PATH=/
-```
-
 ### `ACINT_TOKEN`
 
 The security token to be used to authenticate, default: a random `uuid4`
 
 ```bash
 ACINT_TOKEN=keep_this_secret
+```
+
+### `ACINT_PROXY_PATH`
+
+The proxy path for the service, default: `/`
+
+```bash
+ACINT_PROXY_PATH=/
 ```
 
 ### `ACINT_ENV`
@@ -52,9 +52,6 @@ The following example `docker-compose` and `.env` shows how to run `acint` besid
 ### `docker-compose.yml`
 
 ```yaml
-volumes:
-  web_root:
-  smnrp-data:
 services:
   ws:
     image: ethnexus/smnrp
@@ -77,8 +74,8 @@ SMNRP_UPSTREAMS=acint!acint:80
 SMNRP_LOCATIONS=/acint/!http://acint/
 ...
 ACINT_ALLOWED_ACTIONS=.deploy
-ACINT_PROXY_PATH=/
 ACINT_TOKEN=keep_this_secret
+ACINT_PROXY_PATH=/
 ...
 ```
 
@@ -148,7 +145,7 @@ The following entry can be added to the repository's owners crontab:
 
 ### Test `acint`
 
-You can use `curl` to test it:
+You can use `curl` to test `acint`:
 
 ```bash
 curl -i \
