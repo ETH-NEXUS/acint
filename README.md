@@ -52,11 +52,9 @@ The following example `docker-compose` and `.env` shows how to run `acint` besid
 ### `docker-compose.yml`
 
 ```yaml
-version: "3.9"
 volumes:
   web_root:
   smnrp-data:
-
 services:
   ws:
     image: ethnexus/smnrp
@@ -68,6 +66,7 @@ services:
     volumes:
       - ./.acint:/do
     env_file: .env
+    restart: unless-stopped
 ```
 
 ### `.env`
@@ -75,7 +74,6 @@ services:
 ```bash
 ...
 SMNRP_UPSTREAMS=acint!acint:80
-SMNRP_UPSTREAM_PROTOCOL=http
 SMNRP_LOCATIONS=/acint/!http://acint/
 ...
 ACINT_ALLOWED_ACTIONS=.deploy
@@ -146,4 +144,16 @@ The following entry can be added to the repository's owners crontab:
 
 ```crontab
 * * * * * (sudo /path/to/project/scripts/redeployIfNeeded.sh 2>&1) >> /path/to/project/logs/redeploy.log
+```
+
+### Test `acint`
+
+You can use `curl` to test it:
+
+```bash
+curl -i \
+-H "Accept: application/json" \
+-H "Content-Type:application/json" \
+-X POST --data '{ "action": "<ACINT_ACTION>", "token": "<ACINT_TOKEN>" }' \
+https://<host>/acint/
 ```
